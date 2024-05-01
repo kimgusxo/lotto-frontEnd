@@ -1,8 +1,9 @@
 <template>
   <v-app>
-    <Header/>
     <v-main>
+      <Header/>
       <Calendar/>
+      <Footer/>
     </v-main>
   </v-app>
 </template>
@@ -11,14 +12,16 @@
 import Grid from './components/component/Grid.vue'
 import Calendar from './components/component/Calendar.vue'
 import Header from './components/component/Header.vue'
+import Footer from './components/component/Footer.vue'
 
 export default {
   name: 'App',
 
   components: {
+    Header,
     Grid,
     Calendar,
-    Header
+    Footer
   },
 
   data: () => ({

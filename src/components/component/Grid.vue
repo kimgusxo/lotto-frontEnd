@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Graph from './Graph.vue';
+import Graph from './BarGraph.vue';
 
 export default {
   components: {
