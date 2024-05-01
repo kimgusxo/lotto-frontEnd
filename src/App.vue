@@ -2,6 +2,8 @@
   <v-app>
     <v-main>
       <Header/>
+      <PieGraph/>
+      <Grid/>
       <Calendar/>
       <Footer/>
     </v-main>
@@ -11,6 +13,7 @@
 <script>
 import Grid from './components/component/Grid.vue'
 import Calendar from './components/component/Calendar.vue'
+import PieGraph from './components/component/PieGraph.vue'
 import Header from './components/component/Header.vue'
 import Footer from './components/component/Footer.vue'
 
@@ -21,6 +24,7 @@ export default {
     Header,
     Grid,
     Calendar,
+    PieGraph,
     Footer
   },
 
