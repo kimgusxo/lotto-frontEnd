@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <!-- 15행을 생성, 각 행에는 3개의 카드가 있음 -->
     <v-row v-for="row in 15" :key="'row-' + row">
-      <!-- 행당 3개의 칼럼(카드) -->
       <v-col cols="4" v-for="col in 3" :key="'col-' + col + '-row-' + row">
         <v-card class="pa-2">
-          <v-card-title>Card {{ ((row - 1) * 3) + col }}</v-card-title>
-          <v-card-text>This is card number {{ ((row - 1) * 3) + col }}</v-card-text>
+          <v-card-title class="text-center"> {{ ((row - 1) * 3) + col }}번</v-card-title>
+          <v-card-text>
+            <graph :percentage="2.38524" :bonusPercentage="2.17542"/>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -14,11 +14,17 @@
 </template>
 
 <script>
+import Graph from './Graph.vue';
+
 export default {
-  name: 'CardGrid'
+  components: {
+    Graph
+  }
 }
 </script>
 
-<style>
-/* 스타일링 추가 가능 */
+<style scoped>
+.v-card-title {
+  text-align: center;
+}
 </style>

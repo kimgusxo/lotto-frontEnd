@@ -2,8 +2,8 @@
   <v-app>
     <TopNav/>
     <v-main>
-      <Grid/>
       <Calendar/>
+
     </v-main>
   </v-app>
 </template>
