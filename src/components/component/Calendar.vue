@@ -1,27 +1,24 @@
 <template>
-  <v-container>
-    <v-calendar
-      v-model="value"
-      :events="events"
-      :event-color="getEventColor"
-    ></v-calendar>
-  </v-container>
+  <div>
+    <v-sheet>
+      <v-calendar
+        ref="calendar"
+        v-model="value"
+        :events="events"
+        :view-mode="type"
+        :weekdays="weekday"
+      ></v-calendar>
+    </v-sheet>
+  </div>
 </template>
 
 <script>
+import { VCalendar } from 'vuetify/labs/VCalendar'
+
 export default {
-  data: () => ({
-    value: new Date().toISOString().substr(0, 10),  // 현재 날짜
-    events: [
-      { name: 'Event 1', start: '2024-05-05', end: '2024-05-05', color: 'blue' },
-      { name: 'Event 2', start: '2024-05-18', end: '2024-05-18', color: 'green' }
-    ]
-  }),
-  methods: {
-    getEventColor(event) {
-      return event.color;
-    }
-  }
+  components: {
+    VCalendar
+  },
 }
 </script>
 
