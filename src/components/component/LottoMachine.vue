@@ -1,11 +1,6 @@
 <template>
   <v-container class="container">
-    <v-title class="title">
-      번호 추첨
-    </v-title>
-    <div class="rounded-rectangle">
-      ?
-    </div>
+    <AnimateBox/>
     <!-- 버튼 그룹 추가 -->
     <div class="button-group">
       <v-btn @click="drawNumbers(1)" class="draw-btn light-blue">1회 추첨</v-btn>
@@ -16,8 +11,11 @@
 </template>
 
 <script>
+import AnimateBox from './AnimateBox.vue';
 export default {
-  name: 'QuestionBox',
+  components: {
+    AnimateBox    
+  },
   methods: {
     drawNumbers(count) {
       // 추첨 로직 추가
@@ -34,24 +32,6 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100vh; /* 화면의 높이만큼 컨테이너를 확장합니다. */
-}
-
-.title {
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.rounded-rectangle {
-  width: 500px;
-  height: 500px;
-  border: 4px solid;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 300px;
-  color: #ffffff; /* 텍스트 색상을 흰색으로 설정 */
-  animation: colorChange 5s infinite;
 }
 
 .button-group {
@@ -85,34 +65,5 @@ export default {
   border: 2px solid #FFC0CB; /* 테두리 색상을 핑크로 설정 */
 }
 
-@keyframes colorChange {
-  0%, 100% {
-      background-color: rgba(255, 0, 0, 0.3);
-      border-color: red;
-  }
-  14.28571% {
-      background-color: rgba(0, 255, 0, 0.3);
-      border-color: green;
-  }
-  28.57143% {
-      background-color: rgba(0, 0, 255, 0.3);
-      border-color: blue;
-  }
-  42.85714% {
-      background-color: rgba(255, 255, 0, 0.3);
-      border-color: yellow;
-  }
-  57.14286% {
-      background-color: rgba(0, 255, 255, 0.3);
-      border-color: cyan;
-  }
-  71.42857% {
-      background-color: rgba(255, 0, 255, 0.3);
-      border-color: magenta;
-  }
-  85.71429% {
-      background-color: rgba(255, 165, 0, 0.3);
-      border-color: orange;
-  }
-}
+
 </style>
