@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-sheet>
       <v-calendar
         ref="calendar"
@@ -9,7 +9,7 @@
         :weekdays="weekday"
       ></v-calendar>
     </v-sheet>
-  </div>
+  </v-container>
 </template>
 
 <script>

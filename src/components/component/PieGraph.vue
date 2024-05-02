@@ -1,4 +1,5 @@
 <template>
+  <v-container>
   <v-card>
     <!-- 폰트 크기, 두께, 색상 및 테두리를 적용한 타이틀 -->
     <v-card-title class="text-center title-with-white-border">번호별 그래프</v-card-title>
@@ -8,6 +9,7 @@
       </div>
     </v-card-text>
   </v-card>
+</v-container>
 </template>
 
 <script setup>
