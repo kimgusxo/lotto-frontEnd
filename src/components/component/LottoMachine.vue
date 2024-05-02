@@ -7,25 +7,46 @@
       <v-btn @click="drawNumbers(5)" class="draw-btn light-green">5회 추첨</v-btn>
       <v-btn @click="drawNumbers(10)" class="draw-btn pink">10회 추첨</v-btn>
     </div>
+    <div class="grid-container">
+      <Number
+        v-for="(result, index) in results"
+        :key="index"
+        :numbers="result.numbers"
+        :bonus="result.bonus"
+      />
+    </div>
   </v-container>
 </template>
 
 <script>
 import AnimateBox from './AnimateBox.vue';
+import Number from './Number.vue';
+
 export default {
   components: {
-    AnimateBox    
+    AnimateBox,
+    Number
+  },
+  data() {
+    return {
+      results: []
+    };
   },
   methods: {
     drawNumbers(count) {
-      // 추첨 로직 추가
-      console.log(`${count}회의 번호를 추첨합니다.`);
+      this.results = []; // 기존 결과 초기화
+      for (let i = 0; i < count; i++) {
+        const numbers = Array.from({ length: 6 }, () => Math.floor(Math.random() * 45) + 1);
+        const bonus = Math.floor(Math.random() * 45) + 1;
+        this.results.push({ numbers, bonus });
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+
 .container {
   display: flex;
   flex-direction: column;
@@ -65,5 +86,14 @@ export default {
   border: 2px solid #FFC0CB; /* 테두리 색상을 핑크로 설정 */
 }
 
+.grid-container {
+  width: 100%; /* 그리드 컨테이너 폭 조정 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto; /* 행 높이 자동 조절 */
+  grid-gap: 10px;
+  overflow-y: auto; /* 필요할 때만 수직 스크롤바를 표시 */
+
+}
 
 </style>
