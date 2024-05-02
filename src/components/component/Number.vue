@@ -1,4 +1,5 @@
 <template>
+  <v-sheet>
     <v-row justify="center">
       <!-- 기존 원 반복 생성, 각 원에 고유 클래스 추가 -->
       <v-col cols="auto" v-for="(n, index) in 6" :key="n">
@@ -19,6 +20,7 @@
         </v-avatar>
       </v-col>
     </v-row>
+  </v-sheet>
   </template>
   
   <script>
@@ -45,13 +47,13 @@
   }
   
   /* 각 원에 대한 색상 및 테두리 스타일 */
-  .color-1 { background-color: rgba(255, 0, 0, 0.2); border-color: red; }
-  .color-2 { background-color: rgba(0, 255, 0, 0.2); border-color: green; }
-  .color-3 { background-color: rgba(0, 0, 255, 0.2); border-color: blue; }
-  .color-4 { background-color: rgba(255, 255, 0, 0.2); border-color: yellow; }
-  .color-5 { background-color: rgba(0, 255, 255, 0.2); border-color: cyan; }
-  .color-6 { background-color: rgba(255, 0, 255, 0.2); border-color: magenta; }
-  .color-bonus { background-color: rgba(255, 165, 0, 0.2); border-color: orange; }
+  .color-1 { background-color: rgba(255, 0, 0, 0.3); border-color: red; }
+  .color-2 { background-color: rgba(0, 255, 0, 0.3); border-color: green; }
+  .color-3 { background-color: rgba(0, 0, 255, 0.3); border-color: blue; }
+  .color-4 { background-color: rgba(255, 255, 0, 0.3); border-color: yellow; }
+  .color-5 { background-color: rgba(0, 255, 255, 0.3); border-color: cyan; }
+  .color-6 { background-color: rgba(255, 0, 255, 0.3); border-color: magenta; }
+  .color-bonus { background-color: rgba(255, 165, 0, 0.3); border-color: orange; }
   
   .v-avatar .white--text {
     font-size: 48px;

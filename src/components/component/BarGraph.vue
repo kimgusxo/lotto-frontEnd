@@ -25,8 +25,8 @@ export default {
             label: '확률 데이터',
             data: [this.percentage, this.bonusPercentage], // 각 레이블에 해당하는 데이터
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)', 
-              'rgba(54, 162, 235, 0.2)'
+              'rgba(255, 99, 132, 0.3)', 
+              'rgba(54, 162, 235, 0.3)'
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)', 

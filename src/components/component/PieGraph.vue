@@ -23,11 +23,11 @@ const ranges = ["1-9", "10-19", "20-29", "30-39", "40-45"];
 const counts = [10, 20, 30, 40, 50];
 
 const backgroundColors = [
-  'rgba(255, 99, 132, 0.2)', // Light Red
-  'rgba(54, 162, 235, 0.2)', // Light Blue
-  'rgba(255, 206, 86, 0.2)', // Light Yellow
-  'rgba(75, 192, 192, 0.2)', // Light Green
-  'rgba(153, 102, 255, 0.2)' // Light Purple
+  'rgba(255, 99, 132, 0.3)', // Light Red
+  'rgba(54, 162, 235, 0.3)', // Light Blue
+  'rgba(255, 206, 86, 0.3)', // Light Yellow
+  'rgba(75, 192, 192, 0.3)', // Light Green
+  'rgba(153, 102, 255, 0.3)' // Light Purple
 ];
 const borderColors = [
   'rgba(255, 99, 132, 1)', // Red
