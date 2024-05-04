@@ -1,28 +1,59 @@
 <template>
-    <v-container>
-      <!-- 총 5줄 생성, 마지막 줄은 카드 5개만 출력 -->
-      <v-row v-for="row in 5" :key="'row-' + row">
-        <!-- 각 줄에 10개 카드, 마지막 줄은 조건부 렌더링으로 5개만 -->
-        <v-col cols="1" v-for="col in (row < 5 ? 10 : 5)" :key="'col-' + col + '-row-' + row">
-          <v-card class="pa-2">
-            <v-card-title class="text-center">{{ ((row - 1) * 10) + col }}번</v-card-title>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h1 class="title">번호 정보</h1>
+      </v-col>
+    </v-row>
+    <!-- 총 9줄 생성, 각 줄에 원형 카드 5개씩 출력 -->
+    <v-row v-for="row in 9" :key="'row-' + row" justify="center">
+      <v-col cols="2" v-for="col in 5" :key="'col-' + col + '-row-' + row">
+        <v-card class="d-flex flex-column justify-center align-center pa-4 my-card">
+          <v-avatar :class="getColorClass(((row - 1) * 5) + col)" class="circle-avatar">
+            <span class="white--text headline font-weight-bold">{{ ((row - 1) * 5) + col }}</span>
+          </v-avatar>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </template>
-  
-  <script>
-  import Graph from './BarGraph.vue';
-  
-  export default {
+<script>
+export default {
+  methods: {
+    getColorClass(number) {
+      const colorClasses = ['color-red', 'color-green', 'color-blue', 'color-cyan', 'color-magenta'];
+      const index = Math.floor((number - 1) / 10) % colorClasses.length;
+      return colorClasses[index];
+    }
   }
-  </script>
-  
-  <style scoped>
-  .v-card-title {
-    text-align: center;
-  }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.my-card {
+  min-height: 150px; /* 카드의 최소 높이 설정 */
+}
+
+.circle-avatar {
+  border-radius: 50%; /* 완벽한 원 모양 */
+  width: 100px; /* 원의 너비 설정 */
+  height: 100px; /* 원의 높이 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 색상 클래스 정의 */
+.color-red { background-color: rgba(255, 0, 0, 0.3); border-color: red; border-width: 3px; border-style: solid; }
+.color-green { background-color: rgba(0, 255, 0, 0.3); border-color: green; border-width: 3px; border-style: solid; }
+.color-blue { background-color: rgba(0, 0, 255, 0.3); border-color: blue; border-width: 3px; border-style: solid; }
+.color-cyan { background-color: rgba(0, 255, 255, 0.3); border-color: cyan; border-width: 3px; border-style: solid; }
+.color-magenta { background-color: rgba(255, 0, 255, 0.3); border-color: magenta; border-width: 3px; border-style: solid; }
+
+.headline {
+  color: #757575; /* 텍스트 색상 */
+  font-size: 48px;
+  font-weight: bold;
+}
+</style>
