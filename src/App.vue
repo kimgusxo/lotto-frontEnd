@@ -9,6 +9,7 @@
       <Main/>
       <LottoMachine/>
       <RoundInfo/>
+      <NumberInfo/>
       <Footer/>
     </v-main>
   </v-app>
@@ -22,6 +23,7 @@ import BaseInfo from './components/component/BaseInfo.vue'
 import Main from './components/component/Main.vue'
 import LottoMachine from './components/component/LottoMachine.vue'
 import RoundInfo from './components/component/RoundInfo.vue'
+import NumberInfo from './components/component/NumberInfo.vue'
 import Header from './components/component/Header.vue'
 import Footer from './components/component/Footer.vue'
 export default {
@@ -36,6 +38,7 @@ export default {
     Main,
     LottoMachine,
     RoundInfo,
+    NumberInfo,
     Footer
   },
 
