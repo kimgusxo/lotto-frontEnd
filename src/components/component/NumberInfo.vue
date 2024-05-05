@@ -5,26 +5,55 @@
         <h1 class="title">번호 정보</h1>
       </v-col>
     </v-row>
-    <!-- 총 9줄 생성, 각 줄에 원형 카드 5개씩 출력 -->
     <v-row v-for="row in 9" :key="'row-' + row" justify="center">
       <v-col cols="2" v-for="col in 5" :key="'col-' + col + '-row-' + row">
         <v-card class="d-flex flex-column justify-center align-center pa-4 my-card">
           <v-avatar :class="getColorClass(((row - 1) * 5) + col)" class="circle-avatar">
-            <span class="white--text headline font-weight-bold">{{ ((row - 1) * 5) + col }}</span>
+            <span class="white--text headline font-weight-bold"
+            @click="openModal(((row - 1) * 5) + col)">{{ ((row - 1) * 5) + col }}</span>
           </v-avatar>
         </v-card>
       </v-col>
     </v-row>
+    <NumberDetailInfo
+      v-model="showDialog"
+      :modalNumber="modalNumber"
+      @update:dialog="handleDialogUpdate">
+    </NumberDetailInfo>
   </v-container>
 </template>
 
 <script>
+import NumberDetailInfo from './NumberDetailInfo.vue';
+
 export default {
+  components: {
+    NumberDetailInfo
+  },
+  name: 'NumberInfo',
+  data() {
+    return {
+      showDialog: false,
+      modalNumber: {}
+    }
+  },
   methods: {
     getColorClass(number) {
       const colorClasses = ['color-red', 'color-green', 'color-blue', 'color-cyan', 'color-magenta'];
       const index = Math.floor((number - 1) / 10) % colorClasses.length;
       return colorClasses[index];
+    },
+    openModal(number) {
+      this.modalNumber = {
+        number: number,
+        count: 154, // Sample data; you might want to fetch this dynamically
+        probability: 2.54584,
+        bonusProbability: 2.14626
+      };
+      this.showDialog = true;
+    },
+    handleDialogUpdate(value) {
+      this.showDialog = value;
     }
   }
 }
@@ -39,9 +68,7 @@ export default {
   border-radius: 50%; /* 완벽한 원 모양 */
   width: 100px; /* 원의 너비 설정 */
   height: 100px; /* 원의 높이 설정 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 }
 
 /* 색상 클래스 정의 */
