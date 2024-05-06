@@ -36,5 +36,6 @@ export default {
 .lotto-link {
   text-decoration: none; /* 링크 기본 스타일 제거 */
   color: inherit; /* 부모 요소로부터 색상 상속 */
+  padding-left: 20px; /* 왼쪽에 20px의 패딩 추가 */
 }
 </style>
