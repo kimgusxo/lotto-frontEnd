@@ -1,36 +1,16 @@
 <template>
   <v-app-bar app dense>
-    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-    <!-- 툴바 타이틀을 굵게 -->
-    <v-toolbar-title class="font-bold">Lotto</v-toolbar-title>
+    <router-link to="/" class="lotto-link">
+      <v-toolbar-title class="font-bold lotto-title">Lotto</v-toolbar-title>
+    </router-link>
     <v-spacer></v-spacer>
-    <!-- 텍스트 버튼에 대해서도 굵은 폰트 적용 -->
-    <v-btn text class="font-bold">회차 정보</v-btn>
-    <v-btn text class="font-bold">번호 정보</v-btn>
-    <v-btn text class="font-bold">캘린더</v-btn>
-    <v-btn text class="font-bold">통계 보기</v-btn>
-    <v-btn text class="font-bold">번호 추첨</v-btn>
+    <!-- 라우트 경로를 to 속성을 통해 지정 -->
+    <v-btn text class="font-bold" to="/round">회차 정보</v-btn>
+    <v-btn text class="font-bold" to="/number">번호 정보</v-btn>
+    <v-btn text class="font-bold" to="/calendar">캘린더</v-btn>
+    <v-btn text class="font-bold" to="/statistics">통계 보기</v-btn>
+    <v-btn text class="font-bold" to="/draw">번호 추첨</v-btn>
   </v-app-bar>
-  <v-navigation-drawer v-model="drawer" app>
-    <v-list>
-      <!-- 네비게이션 드로어 아이템에도 굵은 폰트 적용 -->
-      <v-list-item link>
-        <v-list-item-title class="font-bold">회차 정보</v-list-item-title>
-      </v-list-item>
-      <v-list-item link>
-        <v-list-item-title class="font-bold">번호 정보</v-list-item-title>
-      </v-list-item>
-      <v-list-item link>
-        <v-list-item-title class="font-bold">캘린더</v-list-item-title>
-      </v-list-item>
-      <v-list-item link>
-        <v-list-item-title class="font-bold">통계 보기</v-list-item-title>
-      </v-list-item>
-      <v-list-item link>
-        <v-list-item-title class="font-bold">번호 추첨</v-list-item-title>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
 </template>
 
 <script>
@@ -45,7 +25,16 @@ export default {
 
 <style scoped>
 .font-bold {
-  font-weight: bold; /* 모든 bold 클래스에 굵은 폰트 스타일 적용 */
+  font-weight: bold;
   font-size: 16px;
+}
+
+.lotto-title {
+  font-size: 32px; /* Lotto 타이틀의 폰트 크기를 24px로 설정 */
+}
+
+.lotto-link {
+  text-decoration: none; /* 링크 기본 스타일 제거 */
+  color: inherit; /* 부모 요소로부터 색상 상속 */
 }
 </style>

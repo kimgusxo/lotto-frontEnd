@@ -15,8 +15,8 @@
   </template>
   
   <script>
-  import BaseInfo from './BaseInfo.vue';
-  import PieGraph from './PieGraph.vue';
+  import BaseInfo from '../component/BaseInfo.vue';
+  import PieGraph from '../component/PieGraph.vue';
   
   export default {
     components: {
