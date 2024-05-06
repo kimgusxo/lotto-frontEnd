@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="title">번호 정보</h1>
+        <h1 class="title text-center">번호 정보</h1>
       </v-col>
     </v-row>
     <v-row v-for="row in 9" :key="'row-' + row" justify="center">

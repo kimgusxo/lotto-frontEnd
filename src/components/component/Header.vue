@@ -7,6 +7,7 @@
     <!-- 텍스트 버튼에 대해서도 굵은 폰트 적용 -->
     <v-btn text class="font-bold">회차 정보</v-btn>
     <v-btn text class="font-bold">번호 정보</v-btn>
+    <v-btn text class="font-bold">캘린더</v-btn>
     <v-btn text class="font-bold">통계 보기</v-btn>
     <v-btn text class="font-bold">번호 추첨</v-btn>
   </v-app-bar>
@@ -18,6 +19,9 @@
       </v-list-item>
       <v-list-item link>
         <v-list-item-title class="font-bold">번호 정보</v-list-item-title>
+      </v-list-item>
+      <v-list-item link>
+        <v-list-item-title class="font-bold">캘린더</v-list-item-title>
       </v-list-item>
       <v-list-item link>
         <v-list-item-title class="font-bold">통계 보기</v-list-item-title>

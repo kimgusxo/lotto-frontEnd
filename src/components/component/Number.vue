@@ -59,5 +59,11 @@
     font-size: 48px;
     font-weight: bold;
   }
+
+  /* v-sheet에 패딩 추가 */
+.v-sheet {
+  padding-top: 30px; /* 상단 패딩 */
+  padding-bottom: 30px; /* 하단 패딩 */
+}
   </style>
   

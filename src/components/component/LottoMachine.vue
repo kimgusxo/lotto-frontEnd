@@ -8,13 +8,13 @@
       <v-btn @click="drawNumbers(10)" class="draw-btn pink">10회 추첨</v-btn>
     </div>
     <div class="grid-container">
-      <Number
-        v-for="(result, index) in results"
-        :key="index"
-        :numbers="result.numbers"
-        :bonus="result.bonus"
-      />
-    </div>
+  <div
+    class="grid-item small-number"
+    v-for="(result, index) in results"
+    :key="index">
+    <Number :numbers="result.numbers" :bonus="result.bonus"/>
+  </div>
+</div>
   </v-container>
 </template>
 
@@ -96,4 +96,8 @@ export default {
 
 }
 
+.small-number {
+  transform: scale(0.75); /* 자식 컴포넌트를 75% 크기로 축소 */
+  transform-origin: top left; /* 축소 기준점을 왼쪽 상단으로 설정 */
+}
 </style>
