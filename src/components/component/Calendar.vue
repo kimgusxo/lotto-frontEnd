@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-row>
+      <v-col>
+        <h1 class="title text-center">캘린더</h1>
+      </v-col>
+    </v-row>
     <v-sheet>
       <v-calendar
         ref="calendar"

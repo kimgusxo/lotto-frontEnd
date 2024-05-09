@@ -8,13 +8,10 @@
       <v-btn @click="drawNumbers(10)" class="draw-btn pink">10회 추첨</v-btn>
     </div>
     <div class="grid-container">
-  <div
-    class="grid-item small-number"
-    v-for="(result, index) in results"
-    :key="index">
-    <Number :numbers="result.numbers" :bonus="result.bonus"/>
-  </div>
-</div>
+      <div class="grid-item" v-for="(result, index) in results" :key="index">
+        <Number :numbers="result.numbers" :bonus="result.bonus"/>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -51,12 +48,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 상단 정렬로 변경 */
   height: 100vh; /* 화면의 높이만큼 컨테이너를 확장합니다. */
+  padding-top: 10px;
 }
 
 .button-group {
-  margin-top: 20px;
+  margin-top: 10px; /* 상단 여백 조정 */
   display: flex;
   gap: 20px;
 }
@@ -87,17 +85,12 @@ export default {
 }
 
 .grid-container {
+  margin: 10px;
   width: 100%; /* 그리드 컨테이너 폭 조정 */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto; /* 행 높이 자동 조절 */
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column; /* 아이템을 수직으로 나열 */
   overflow-y: auto; /* 필요할 때만 수직 스크롤바를 표시 */
-
 }
 
-.small-number {
-  transform: scale(0.75); /* 자식 컴포넌트를 75% 크기로 축소 */
-  transform-origin: top left; /* 축소 기준점을 왼쪽 상단으로 설정 */
-}
+
 </style>

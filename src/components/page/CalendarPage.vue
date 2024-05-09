@@ -1,5 +1,4 @@
 <template>
-  <h1 class="title text-center">캘린더</h1>
   <Calendar/>
 </template>
 

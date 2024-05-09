@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-row>
+      <v-col>
+        <h1 class="title text-center">통계 보기</h1>
+      </v-col>
+    </v-row>
     <v-row v-for="row in 15" :key="'row-' + row">
       <v-col cols="4" v-for="col in 3" :key="'col-' + col + '-row-' + row">
         <v-card class="pa-2" @click="openModal(((row - 1) * 3) + col)">

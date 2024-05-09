@@ -1,35 +1,37 @@
 <template>
-  <bar-chart :chart-data="chartData" :options="chartOptions"/>
+  <div class="chart-container">
+    <bar-chart :chart-data="chartData" :options="chartOptions"/>
+  </div>
 </template>
 
 <script>
-import { BarChart } from 'vue-chart-3'; // BarChart 컴포넌트 사용
+import { BarChart } from 'vue-chart-3';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
 export default {
   components: {
-    BarChart // 막대 그래프 컴포넌트 등록
+    BarChart
   },
   props: {
-    percentage: Number, // 기본 확률
-    bonusPercentage: Number // 보너스 확률
+    percentage: Number,
+    bonusPercentage: Number
   },
   computed: {
     chartData() {
       return {
-        labels: ['기본 확률', '보너스 확률'], // 두 개의 레이블을 지정
+        labels: ['기본 확률', '보너스 확률'],
         datasets: [
           {
             label: '확률 데이터',
-            data: [this.percentage, this.bonusPercentage], // 각 레이블에 해당하는 데이터
+            data: [this.percentage, this.bonusPercentage],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.3)', 
+              'rgba(255, 99, 132, 0.3)',
               'rgba(54, 162, 235, 0.3)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)', 
+              'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
@@ -42,6 +44,7 @@ export default {
     return {
       chartOptions: {
         responsive: true,
+        maintainAspectRatio: false, // 차트의 비율을 유지하지 않음
         scales: {
           y: {
             beginAtZero: true
@@ -49,7 +52,7 @@ export default {
         },
         plugins: {
           legend: {
-            display: false // 범례를 표시하지 않음
+            display: false
           }
         }
       }
@@ -57,3 +60,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+</style>

@@ -4,7 +4,7 @@
       <!-- 기존 원 반복 생성, 각 원에 고유 클래스 추가 -->
       <v-col cols="auto" v-for="(n, index) in 6" :key="n">
         <div class="number-label">번호</div>
-        <v-avatar :class="`color-${index + 1}`" size="100">
+        <v-avatar :class="`color-${index + 1}`" size="70px">
           <span class="white--text headline font-weight-bold">{{ n }}</span>
         </v-avatar>
       </v-col>
@@ -15,7 +15,7 @@
       <!-- 추가 원 -->
       <v-col cols="auto">
         <div class="number-label">보너스 번호</div>
-        <v-avatar class="color-bonus" size="100">
+        <v-avatar class="color-bonus" size="70px">
           <span class="white--text headline font-weight-bold">7</span> <!-- 예시 숫자 -->
         </v-avatar>
       </v-col>
@@ -56,7 +56,7 @@
   .color-bonus { background-color: rgba(255, 165, 0, 0.3); border-color: orange; }
   
   .v-avatar .white--text {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
   }
 
@@ -64,6 +64,7 @@
 .v-sheet {
   padding-top: 30px; /* 상단 패딩 */
   padding-bottom: 30px; /* 하단 패딩 */
+  margin: 10px;
 }
   </style>
   
