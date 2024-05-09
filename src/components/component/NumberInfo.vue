@@ -24,13 +24,13 @@
 </template>
 
 <script>
+import { useStatLottoStore } from '@/store/statLotto';
 import NumberDetailInfo from './NumberDetailInfo.vue';
 
 export default {
   components: {
     NumberDetailInfo
   },
-  name: 'NumberInfo',
   data() {
     return {
       showDialog: false,
@@ -43,13 +43,30 @@ export default {
       const index = Math.floor((number - 1) / 10) % colorClasses.length;
       return colorClasses[index];
     },
-    openModal(number) {
-      this.modalNumber = {
-        number: number,
-        count: 154, // Sample data; you might want to fetch this dynamically
-        probability: 2.54584,
-        bonusProbability: 2.14626
-      };
+    async openModal(number) {
+
+      const statLottoStore = useStatLottoStore();
+      await statLottoStore.fetchStatLottoByNumber(number);
+
+      const statInfo = statLottoStore.singleStatLotto;
+
+      if (statInfo) {
+        this.modalNumber = {
+          number: statInfo.number,
+          count: statInfo.count,
+          probability: statInfo.probability, // Convert to percentage
+          bonusCount: statInfo.bonusCount,
+          bonusProbability: statInfo.bonusProbability // Convert to percentage
+        };
+      } else {
+        this.modalNumber = {
+          number: number,
+          count: 0,
+          probability: 0,
+          bonusCount: 0,
+          bonusProbability: 0
+        };
+      }
       this.showDialog = true;
     },
     handleDialogUpdate(value) {
