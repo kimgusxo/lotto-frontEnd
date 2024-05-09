@@ -4,6 +4,15 @@
       <v-col>
         <h1 class="title">회차 정보</h1>
       </v-col>
+      <v-col>
+        <v-text-field
+          label="회차 검색"
+          variant="outlined"
+          v-model="searchQuery"
+          append-icon="mdi-magnify"
+          @click:append="logSearch"
+        ></v-text-field>
+      </v-col>
     </v-row>
     <v-row
       v-for="lottoInfo in lottoData"
@@ -25,13 +34,13 @@
       :lotto="modalLotto"
       @update:dialog="handleDialogUpdate"
     />
-    <BottomNav/>
+    <BottomNav />
   </v-container>
 </template>
 
 <script>
-import BottomNav from './BottomNav.vue'
-import RoundDetailInfo from './RoundDetailInfo.vue'
+import BottomNav from './BottomNav.vue';
+import RoundDetailInfo from './RoundDetailInfo.vue';
 
 export default {
   components: {
@@ -43,6 +52,7 @@ export default {
     return {
       showDialog: false,
       modalTitle: '',
+      searchQuery: '',
       lottoData: [
         {
           id: 1,
@@ -85,6 +95,9 @@ export default {
     },
     handleDialogUpdate(value) {
       this.showDialog = value;
+    },
+    logSearch() {
+      alert('Search Query: ' + this.searchQuery);
     }
   }
 }

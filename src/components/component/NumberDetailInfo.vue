@@ -11,7 +11,7 @@
         <BarGraph :percentage="modalNumber.probability" :bonus-percentage="modalNumber.bonusProbability"/>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="updateDialog(false)">닫기</v-btn>
+          <v-btn color="white" text @click="updateDialog(false)">닫기</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
