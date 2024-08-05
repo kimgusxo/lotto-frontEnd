@@ -1,3 +1,4 @@
+import axios from "axios";
 import { defineStore } from "pinia";
 
 export const useWinningReportStore = defineStore('winningReport', {
@@ -12,6 +13,21 @@ export const useWinningReportStore = defineStore('winningReport', {
     },
     
     actions: {
-        
+        async fetchWinningReport() {
+            try {
+                const response = await axios.get();
+                this.winningReports = response.data;
+            } catch (error) {
+                alert('Error: ', error);
+            }
+        },
+        async fetchWinningReportByRound(round) {
+            try {
+                const response = await axios.get();
+                this.winningReport = response.data;
+            } catch (error) {
+                alert('Error: ', error)
+            }
+         }
     },
 })
