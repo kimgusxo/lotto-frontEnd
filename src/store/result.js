@@ -1,6 +1,8 @@
 import axios from "axios";
 import { defineStore } from "pinia";
 
+axios.defaults.baseURL = 'http://localhost:8082';
+
 export const useResultStore = defineStore('result', {
     state: () => ({
         results: [],
@@ -15,7 +17,7 @@ export const useResultStore = defineStore('result', {
     actions: {
         async fetchResultCurrent() {
             try {
-                const response = await axios.get();
+                const response = await axios.get(`/result/get/lastOne`);
                 this.result = response.data;
             } catch (error) {
                 alert('Error: ', error);

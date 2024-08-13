@@ -1,6 +1,8 @@
 import axios from "axios";
 import { defineStore } from "pinia";
 
+axios.defaults.baseURL = 'http://localhost:8082';
+
 export const useWinningReportStore = defineStore('winningReport', {
     state: () => ({
         winningReports: [],
