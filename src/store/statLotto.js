@@ -15,12 +15,22 @@ export const useStatLottoStore = defineStore('statLotto', {
     },
     
     actions: {
-        async fetchStatLottoByNumber(number) {
+          async fetchStatLottoByNumber(number) {
             try {
               const response = await axios.get(`/statLotto/get/number/${number}`);
               this.statLotto = response.data;
             } catch (error) {
-              alert('Error: ', error);
+              alert('ErrorCode: ', error.code);
+              alert('ErrorDetail: ', error.detail);
+            }
+          },
+          async fetchAllStatLotto() {
+            try {
+              const response = await axios.get(`/statLotto/get/all`);
+              this.statLottos = response.data;
+            } catch (error) {
+              alert('ErrorCode: ', error.code);
+              alert('ErrorDetail: ', error.detail);
             }
           },
     },

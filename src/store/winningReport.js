@@ -12,6 +12,33 @@ export const useWinningReportStore = defineStore('winningReport', {
     },
     
     actions: {
-        
+        async fetchWinningReportByRound(round) {
+            try {
+                const response = await axios.get(`/result/get/round/${round}`);
+                this.result = response.data;
+            } catch (error) {
+                alert('ErrorCode: ', error.code);
+                alert('ErrorDetail: ', error.detail);
+            }
+        },
+        async fetchWinningReportByPage(page) {
+            try {
+                const response = await axios.get(`/result/get/round/${round}`);
+                this.result = response.data;
+            } catch (error) {
+                alert('ErrorCode: ', error.code);
+                alert('ErrorDetail: ', error.detail);
+            }
+        },
+        async fetchLastWinningReport() {
+            try {
+                const response = await axios.get(`/result/get/round/${round}`);
+                this.result = response.data;
+            } catch (error) {
+                alert('ErrorCode: ', error.code);
+                alert('ErrorDetail: ', error.detail);
+            }
+        }
+
     },
 })
