@@ -1,7 +1,7 @@
 import axios from "axios";
 import { defineStore } from "pinia";
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://localhost:8082';
 
 export const useStatLottoStore = defineStore('statLotto', {
     state: () => ({
@@ -32,6 +32,14 @@ export const useStatLottoStore = defineStore('statLotto', {
               alert('ErrorCode: ', error.code);
               alert('ErrorDetail: ', error.detail);
             }
-          },
+        },
+
+        async fetchStatLottoAll() {
+          try {
+
+          } catch (error) {
+            alert('Error: ', error);
+          }
+        }
     },
 })
